@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from config.dummy_log_config import log_messages, get_random_log_type
 from config.logging_config import get_logger
 from utils.log_preprocessor import preprocess_logs
+from services.llm_service import call_gemini_api
 from typing import List, Optional
 import asyncio
 import random
@@ -86,6 +87,7 @@ async def batch_process_logs(batch_interval: int = 60):
 
         for error_log in error_logs:
             solution = await call_llm_api(error_log)
+            # solution = await call_gemini_api(error_log)
             send_alert(error_log, solution)
 
         # WARNING 로그는 일단 알림만 보냄
