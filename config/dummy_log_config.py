@@ -4,7 +4,7 @@ log_weights = {
     "INFO": 0.5,
     "DEBUG": 0.2,
     "WARNING": 0.2,
-    "ERROR": 0.9
+    "ERROR": 0.1
 }
 
 log_messages = {
